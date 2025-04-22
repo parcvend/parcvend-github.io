@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +5,6 @@
     <title>Tickle My Funny Bone</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -15,21 +13,19 @@
 
         body {
             line-height: 1.6;
-            color: #333; /* Darker, more readable default text color */
-            background: linear-gradient(135deg, #ffe082, #ffb74d); /* A softer yellow-orange gradient */
+            color: #222;
+            background: linear-gradient(135deg, #ffeb3b, #ff5722);
             overflow-x: hidden;
-            font-family: 'Roboto', sans-serif; /* More consistent body font */
         }
 
-        /* Navigation Styles */
         nav {
-            background: #f4511e; /* A warmer orange that complements the background */
+            background: #d81b60;
             color: white;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slightly less intense shadow */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
         nav ul {
@@ -37,29 +33,25 @@
             justify-content: center;
             list-style: none;
             padding: 1.2rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         nav ul li {
-            margin: 0 1.5rem; /* Slightly reduced margin */
+            margin: 0 2rem;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
             font-family: 'Comic Neue', cursive;
-            font-size: 1.1rem; /* Slightly smaller initial size */
+            font-size: 1.2rem;
             text-transform: uppercase;
             transition: color 0.3s;
         }
 
-        nav ul li a:hover,
-        nav ul li a:focus { /* Adding focus state for accessibility */
-            color: #ffe082; /* Lighter yellow for hover/focus */
+        nav ul li a:hover {
+            color: #ffeb3b;
         }
 
-        /* Section Styles */
         section {
             min-height: 100vh;
             padding: 6rem 2rem;
@@ -68,35 +60,44 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            max-width: 1200px;
-            margin: 2rem auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
-            border-radius: 15px; /* Consistent border-radius */
-            background-color: rgba(255, 255, 255, 0.85); /* Slightly less opaque */
+            font-family: 'Roboto', sans-serif;
         }
 
         #home {
-            /* Specific styles for home */
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            margin: 2rem;
+            max-width: 900px;
+            animation: slideIn 1s ease-out;
         }
 
         #about {
-            background-color: rgba(255, 193, 7, 0.75); /* A different shade of yellow */
+            background: rgba(255, 235, 59, 0.8);
+            border-radius: 20px;
+            margin: 2rem;
+            max-width: 900px;
         }
 
         #projects {
-            /* Specific styles for projects */
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            margin: 2rem;
+            max-width: 900px;
         }
 
         #contact {
-            background-color: rgba(255, 193, 7, 0.75); /* Consistent with about for now */
+            background: rgba(255, 235, 59, 0.8);
+            border-radius: 20px;
+            margin: 2rem;
+            max-width: 900px;
         }
 
         h1 {
             font-family: 'Comic Neue', cursive;
-            font-size: 3.5rem; /* Slightly reduced size */
-            color: #f4511e; /* Consistent accent color */
-            margin-bottom: 1.2rem;
-            text-shadow: 1px 1px #ffe082; /* Subtler text shadow */
+            font-size: 3.5rem;
+            color: #d81b60;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px #ffeb3b;
         }
 
         .tickle-heading {
@@ -105,77 +106,69 @@
         }
 
         h2 {
-            font-family: 'Roboto', sans-serif; /* Using Roboto for better consistency */
-            font-size: 2.4rem;
+            font-family: 'Comic Neue', cursive;
+            font-size: 2.5rem;
             color: #222;
             margin-bottom: 1rem;
         }
 
         p {
-            max-width: 800px;
-            font-size: 1.15rem; /* Slightly smaller font size */
+            max-width: 700px;
+            font-size: 1.1rem;
             margin-bottom: 1.5rem;
-            color: #444; /* Slightly darker text */
-            line-height: 1.7;
+            color: #333;
         }
 
-        /* Project Grid Styles */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem; /* Slightly reduced gap */
-            max-width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
             width: 100%;
-            padding: 1rem; /* Add some padding inside the grid */
         }
 
         .project-card {
             background: #fff;
-            padding: 1.5rem; /* Reduced padding */
-            border-radius: 10px; /* Consistent border-radius */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Softer shadow */
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #f4511e; /* More subtle border */
+            border: 2px solid #ff5722;
         }
 
-        .project-card:hover,
-        .project-card:focus-within { /* Adding focus state */
-            transform: scale(1.03);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            background: #ffe082; /* Lighter yellow on hover/focus */
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
         }
 
         .project-card h3 {
             font-family: 'Comic Neue', cursive;
-            color: #f4511e;
-            font-size: 1.3rem;
-            margin-bottom: 0.4rem;
+            color: #d81b60;
+            margin-bottom: 0.5rem;
         }
 
-        /* Contact Links Styles */
         .contact-links {
             display: flex;
-            gap: 1rem; /* Reduced gap */
+            gap: 1.5rem;
             margin-top: 1rem;
         }
 
         .contact-links a {
-            color: #f4511e;
+            color: #ff5722;
             text-decoration: none;
             font-family: 'Comic Neue', cursive;
-            font-size: 1rem; /* Slightly smaller font */
+            font-size: 1.2rem;
             transition: color 0.3s;
         }
 
-        .contact-links a:hover,
-        .contact-links a:focus { /* Adding focus state */
-            color: #d81b60; /* Keeping a similar accent color */
+        .contact-links a:hover {
+            color: #d81b60;
         }
 
-        /* Cartoon Character Styles - Refined */
+        /* Cartoon Character Styles */
         .cartoon-character {
-            width: 100px; /* Slightly smaller */
-            height: 100px; /* Slightly smaller */
+            width: 100px;
+            height: 100px;
             margin-bottom: 1rem;
         }
 
@@ -195,7 +188,6 @@
             animation: spin 5s infinite linear;
         }
 
-        /* Keyframe Animations */
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -212,13 +204,13 @@
                 transform: translateY(0) rotate(0deg);
             }
             25% {
-                transform: translateY(-10px) rotate(3deg);
+                transform: translateY(-15px) rotate(5deg);
             }
             50% {
                 transform: translateY(0) rotate(0deg);
             }
             75% {
-                transform: translateY(-10px) rotate(-3deg);
+                transform: translateY(-15px) rotate(-5deg);
             }
         }
 
@@ -227,7 +219,7 @@
                 transform: rotate(0deg);
             }
             50% {
-                transform: rotate(15deg);
+                transform: rotate(20deg);
             }
         }
 
@@ -236,7 +228,7 @@
                 transform: scaleY(1);
             }
             5% {
-                transform: scaleY(0.2);
+                transform: scaleY(0.1);
             }
         }
 
@@ -245,7 +237,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-8px);
+                transform: translateY(-10px);
             }
         }
 
@@ -258,50 +250,6 @@
             }
         }
 
-        /* Large Screen Optimizations */
-        @media (min-width: 1200px) {
-            nav ul {
-                padding: 1.5rem 0;
-            }
-
-            nav ul li a {
-                font-size: 1.2rem;
-            }
-
-            section {
-                padding: 8rem 3rem;
-                margin: 3rem auto;
-                border-radius: 20px;
-            }
-
-            h1 {
-                font-size: 4rem;
-            }
-
-            h2 {
-                font-size: 2.8rem;
-            }
-
-            p {
-                font-size: 1.2rem;
-                max-width: 900px;
-            }
-
-            .cartoon-character {
-                width: 120px;
-                height: 120px;
-            }
-
-            .project-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-            }
-
-            .project-card {
-                padding: 2rem;
-            }
-        }
-
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -309,15 +257,15 @@
             }
 
             nav ul li {
-                margin: 0.6rem 0;
+                margin: 0.8rem 0;
             }
 
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             h2 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             section {
@@ -326,24 +274,8 @@
             }
 
             .cartoon-character {
-                width: 70px;
-                height: 70px;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-card {
-                padding: 1rem;
-            }
-
-            .project-card h3 {
-                font-size: 1.4rem;
-            }
-
-            .contact-links a {
-                font-size: 1rem;
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
@@ -351,77 +283,76 @@
 <body>
     <nav>
         <ul>
-            <li><a href="#home">Home: The Humor Hub</a></li>
-            <li><a href="#about">About the Humorist</a></li>
-            <li><a href="#projects">Satirical Works</a></li>
-            <li><a href="#contact">Contact the Jester</a></li>
+            <li><a href="#home">Laugh Central</a></li>
+            <li><a href="#about">Wit Wizard</a></li>
+            <li><a href="#projects">Giggle Works</a></li>
+            <li><a href="#contact">Poke Me</a></li>
         </ul>
     </nav>
 
     <section id="home">
+        <!-- Jester Character -->
         <svg class="cartoon-character" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="35" fill="#ffeb3b" stroke="#f4511e" stroke-width="4"/>
-            <circle cx="38" cy="40" r="4" fill="#222"/>
-            <circle cx="62" cy="40" r="4" fill="#222"/>
-            <path d="M38 60 Q50 68 62 60" fill="none" stroke="#222" stroke-width="3"/>
-            <path d="M25 25 L15 15 M75 25 L85 15 M50 15 L50 5" fill="none" stroke="#f4511e" stroke-width="3"/>
-            <path d="M30 30 A15 10 0 0 0 70 30" fill="none" stroke="#d81b60" stroke-width="2"/>
+            <circle cx="50" cy="50" r="40" fill="#ffeb3b" stroke="#d81b60" stroke-width="3"/>
+            <circle cx="35" cy="40" r="5" fill="#222"/>
+            <circle cx="65" cy="40" r="5" fill="#222"/>
+            <path d="M35 60 Q50 70 65 60" fill="none" stroke="#222" stroke-width="3"/>
+            <path d="M20 20 L10 10 M80 20 L90 10 M50 10 L50 0" fill="none" stroke="#d81b60" stroke-width="3"/>
         </svg>
         <h1><span class="tickle-heading">Tickle My Funny Bone</span></h1>
-        <p>Prepare for a Comedy Cauldron! [Your Name] stirs up satirical takes on the daily absurdities, guaranteed to make you chuckle (or maybe snort).</p>
+        <p>Welcome to the lair of [Your Name], where satire and humor collide to roast life's absurdities. Buckle up for a wild ride!</p>
     </section>
 
     <section id="about">
+        <!-- Philosopher Character -->
         <svg class="cartoon-character" viewBox="0 0 100 100">
-            <rect x="30" y="30" width="40" height="45" fill="#ffb74d" stroke="#222" stroke-width="3" rx="5"/>
-            <circle cx="40" cy="40" r="5" fill="#222"/>
-            <circle cx="60" cy="40" r="5" fill="#222"/>
-            <path d="M40 58 Q50 65 60 58" fill="none" stroke="#222" stroke-width="3"/>
-            <path d="M35 75 L30 90 M65 75 L70 90" fill="none" stroke="#222" stroke-width="3"/>
-            <path d="M35 35 L25 20 M65 35 L75 20" fill="none" stroke="#222" stroke-width="2"/>
+            <rect x="30" y="30" width="40" height="40" fill="#ff5722" stroke="#222" stroke-width="3"/>
+            <circle cx="40" cy="40" r="4" fill="#222"/>
+            <circle cx="60" cy="40" r="4" fill="#222"/>
+            <path d="M40 55 Q50 60 60 55" fill="none" stroke="#222" stroke-width="3"/>
+            <path d="M30 70 L30 90 M70 70 L70 90" fill="none" stroke="#222" stroke-width="3"/>
         </svg>
         <h2>About the Chief Jester</h2>
-        <p>[Your Name] here, navigating the chaotic comedy of life with a keyboard and a mischievous grin. I dissect the ridiculous – from boardroom babble to influencer antics – serving up satirical slices that are both hilarious and (sometimes) a little too real. My goal is simple: to tickle your funny bone until it begs for mercy.</p>
+        <p>I'm [Your Name], a word-slinger who turns life's nonsense into laugh-out-loud satire. From mocking corporate jargon to skewering social media clowns, I wield humor like a sword. My mission? To make you snort coffee out your nose.</p>
     </section>
 
     <section id="projects">
+        <!-- Corporate Clown Character -->
         <svg class="cartoon-character" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="35" fill="#fff" stroke="#f4511e" stroke-width="4"/>
-            <circle cx="38" cy="40" r="4" fill="#222"/>
-            <circle cx="62" cy="40" r="4" fill="#222"/>
-            <circle cx="50" cy="58" r="7" fill="#d81b60"/>
-            <path d="M20 25 Q50 5 80 25" fill="none" stroke="#d81b60" stroke-width="3"/>
-            <rect x="40" y="70" width="20" height="10" fill="#f4511e" rx="3"/>
+            <circle cx="50" cy="50" r="40" fill="#fff" stroke="#ff5722" stroke-width="3"/>
+            <circle cx="35" cy="40" r="5" fill="#222"/>
+            <circle cx="65" cy="40" r="5" fill="#222"/>
+            <circle cx="50" cy="55" r="8" fill="#d81b60"/>
+            <path d="M20 20 Q50 0 80 20" fill="none" stroke="#d81b60" stroke-width="3"/>
         </svg>
         <h2>My Satirical Shenanigans</h2>
         <div class="project-grid">
             <div class="project-card">
                 <h3>The Corporate Compost</h3>
-                <p>Dive into 'The Corporate Compost,' my ongoing blog where buzzwords like 'synergy' and 'disrupt' are hilariously repurposed into fertile ground for satire. Prepare for a weekly dose of corporate comedy that's 100% organic (and slightly toxic).</p>
+                <p>A blog series where I turn buzzwords like "synergy" and "disrupt" into fertilizer for your amusement.</p>
             </div>
             <div class="project-card">
                 <h3>Absurdville Chronicles</h3>
-                <p>Escape to 'Absurdville Chronicles,' a novella where common sense has packed its bags and left town. Witness the uproarious chaos as residents engage in heated debates over the optimal composting techniques in a logic-free landscape.</p>
+                <p>A novella about a town where logic is banned, and everyone argues about who composts better.</p>
             </div>
             <div class="project-card">
                 <h3>Social Media Roast</h3>
-                <p>Brace yourself for 'Social Media Roast,' a collection of sharp and silly skits that skewer the curated realities of online personalities. No filter is safe as we hilariously dissect the 'authentic' avocado toast chronicles and other influencer absurdities.</p>
+                <p>A collection of skits that expose influencers’ "authentic" avocado toast obsessions.</p>
             </div>
         </div>
     </section>
 
     <section id="contact">
+        <!-- Hippo Character -->
         <svg class="cartoon-character" viewBox="0 0 100 100">
-            <ellipse cx="50" cy="60" rx="35" ry="25" fill="#d81b60" stroke="#222" stroke-width="4"/>
-            <circle cx="40" cy="40" r="5" fill="#222"/>
-            <circle cx="60" cy="40" r="5" fill="#222"/>
-            <path d="M40 55 Q50 60 60 55" fill="none" stroke="#222" stroke-width="3"/>
-            <rect x="45" y="70" width="10" height="10" fill="#fff" rx="2"/>
-            <rect x="30" y="75" width="10" height="5" fill="#fff"/>
-            <rect x="60" y="75" width="10" height="5" fill="#fff"/>
+            <ellipse cx="50" cy="60" rx="40" ry="30" fill="#d81b60" stroke="#222" stroke-width="3"/>
+            <circle cx="40" cy="40" r="4" fill="#222"/>
+            <circle cx="60" cy="40" r="4" fill="#222"/>
+            <path d="M40 50 Q50 55 60 50" fill="none" stroke="#222" stroke-width="3"/>
+            <rect x="45" y="70" width="10" height="10" fill="#fff"/>
         </svg>
         <h2>Throw Me a Bone</h2>
-        <p>Got a comedic concept that's too ludicrous to ignore? Or perhaps a collaboration of satirical genius is brewing? Don't be shy, drop me a line and let the hilarity ensue!</p>
+        <p>Got a ridiculous idea or want to collaborate on a satirical masterpiece? Holler at me!</p>
         <div class="contact-links">
             <a href="mailto:your.email@example.com">Email</a>
             <a href="https://github.com/yourusername" target="_blank">GitHub</a>
@@ -440,19 +371,13 @@
             });
         });
 
-        // Add a fun hover/focus effect on project cards
+        // Add a fun hover effect on project cards
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('mouseover', () => {
-                card.style.backgroundColor = '#ffe082';
+                card.style.background = '#ffeb3b';
             });
             card.addEventListener('mouseout', () => {
-                card.style.backgroundColor = '#fff';
-            });
-            card.addEventListener('focusin', () => {
-                card.style.backgroundColor = '#ffe082';
-            });
-            card.addEventListener('focusout', () => {
-                card.style.backgroundColor = '#fff';
+                card.style.background = '#fff';
             });
         });
     </script>
